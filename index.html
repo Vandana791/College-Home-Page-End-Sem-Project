@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>KL College</title>
+
+    <!-- Connecting CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <h2>KL College</h2>
+
+        <div>
+            <a href="#" onclick="showPage('home')">Home</a>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+
+        <h1>Welcome to KL College</h1>
+        <p>Learn, Grow and Build Your Future With Us.</p>
+
+        <div class="grid">
+
+            <div class="card">
+                <h2>Courses</h2>
+                <p>Choose your preferred course.</p>
+                <button onclick="showPage('courses')">View Courses</button>
+            </div>
+
+            <div class="card">
+                <h2>Student Details</h2>
+                <p>Enter your student information.</p>
+                <button onclick="showPage('student')">Fill Details</button>
+            </div>
+
+            <div class="card">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our college.</p>
+                <button onclick="showPage('contact')">Contact Us</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="page">
+
+        <h2>Our Courses</h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>Hindi</h3>
+                <p>Course ID: 101</p>
+                <button onclick="chooseCourse('Hindi')">Choose</button>
+            </div>
+
+            <div class="card">
+                <h3>English</h3>
+                <p>Course ID: 102</p>
+                <button onclick="chooseCourse('English')">Choose</button>
+            </div>
+
+            <div class="card">
+                <h3>Mathematics</h3>
+                <p>Course ID: 103</p>
+                <button onclick="chooseCourse('Mathematics')">Choose</button>
+            </div>
+
+        </div>
+
+        <p id="courseMessage"></p>
+        <button onclick="showPage('home')">Back to Home</button>
+
+    </section>
+
+    <!-- Student Details Section -->
+    <section id="student" class="page">
+
+        <h2>Student Details</h2>
+
+        <form id="studentForm">
+
+            <input type="text" placeholder="Enter Your Name" required>
+            <br><br>
+
+            <input type="text" placeholder="Enter Roll Number" required>
+            <br><br>
+
+            <input type="email" placeholder="Enter Your Email" required>
+            <br><br>
+
+            <select id="studentCourse" required>
+                <option value="">Choose Your Course</option>
+                <option>Hindi</option>
+                <option>English</option>
+                <option>Mathematics</option>
+            </select>
+            <br><br>
+
+            <button type="submit">Submit Details</button>
+
+        </form>
+
+        <p id="studentMessage"></p>
+        <button onclick="showPage('home')">Back to Home</button>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="page">
+
+        <h2>Contact Us</h2>
+
+        <form id="contactForm">
+
+            <input type="text" placeholder="Enter Your Name" required>
+            <br><br>
+
+            <input type="email" placeholder="Enter Your Email" required>
+            <br><br>
+
+            <textarea rows="4" placeholder="Enter Your Message" required></textarea>
+            <br><br>
+
+            <button type="submit">Submit</button>
+
+        </form>
+
+        <p>Email: info@klcollege.edu</p>
+        <p>Phone: +91 98765 43210</p>
+
+        <button onclick="showPage('home')">Back to Home</button>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 KL College. All Rights Reserved.</p>
+        <p>Email: info@klcollege.edu</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+
+        function showPage(page) {
+
+            document.getElementById("home").style.display = "none";
+            document.getElementById("courses").style.display = "none";
+            document.getElementById("student").style.display = "none";
+            document.getElementById("contact").style.display = "none";
+
+            document.getElementById(page).style.display = "block";
+
+        }
+
+        function chooseCourse(course) {
+
+            document.getElementById("studentCourse").value = course;
+
+            document.getElementById("courseMessage").innerHTML =
+                course + " selected successfully!";
+
+        }
+
+        document.getElementById("studentForm").onsubmit = function(event) {
+
+            event.preventDefault();
+
+            document.getElementById("studentMessage").innerHTML =
+                "Student Details Submitted Successfully!";
+
+        };
+
+        document.getElementById("contactForm").onsubmit = function(event) {
+
+            event.preventDefault();
+
+            alert("Your Message Submitted Successfully!");
+
+        };
+
+    </script>
+
+</body>
+</html>
